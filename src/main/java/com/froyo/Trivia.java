@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class Trivia {
 
-    ArrayList players = new ArrayList();
+    ArrayList<String> players = new ArrayList<>();
     int[] places = new int[6];
     int[] purses = new int[6];
     boolean[] inPenaltyBox = new boolean[6];
@@ -37,13 +37,12 @@ public class Trivia {
     }
 
     public boolean add(String playerName) {
-
-
-        players.add(playerName);
+        if (howManyPlayers()==6)
+            return false;
         places[howManyPlayers()] = 0;
         purses[howManyPlayers()] = 0;
         inPenaltyBox[howManyPlayers()] = false;
-
+        players.add(playerName);
         System.out.println(playerName + " was added");
         System.out.println("They are player number " + players.size());
         return true;
